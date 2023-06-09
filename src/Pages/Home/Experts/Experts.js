@@ -8,6 +8,8 @@ import expert5 from '../../../imags/experts/expert-5.jpg'
 import expert6 from '../../../imags/experts/expert-6.png'
 import Expert from '../Expert/Expert';
 
+
+
 const experts = [
   { id: 1, name: 'Amir haniya', img: expert1 },
   { id: 2, name: 'Mir aira', img: expert2 },
@@ -17,16 +19,16 @@ const experts = [
   { id: 6, name: 'Abu hena', img: expert6 },
 ]
 const Experts = () => {
-    return (
-      <div className="container">
-        <h2 className="text-primary text-center">Our Experts</h2>
-        <div className="row" style={{ margin: 'auto' }}>
-          {experts.map((expert) => (
-            <Expert key={expert.id} expert={expert}></Expert>
-          ))}
-        </div>
+  return (
+    <div className="container mt-5">
+      <h2 className='text-center' >Our Experts</h2>
+      <div className="row">
+        {experts.map((expert) => (
+          <Expert expert={expert} key={expert.id}></Expert>
+        ))}
       </div>
-    );
+    </div>
+  );
 };
 
 export default Experts;
