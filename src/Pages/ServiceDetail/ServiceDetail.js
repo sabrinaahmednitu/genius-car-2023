@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 const ServiceDetail = () => {
     const { serviceId } = useParams();
     return (
-      <div>
+      <div className='container'>
         <h3>detail : {serviceId} </h3>
       </div>
     );
