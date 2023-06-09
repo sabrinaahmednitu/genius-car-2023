@@ -1,0 +1,53 @@
+.error-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.error1 {
+  flex-basis: 40%;
+}
+.error1 h1 {
+  font-size: 50px;
+  line-height: 50px;
+}
+.error1 button {
+  outline: 0;
+  border: 0;
+  padding: 15px 60px;
+  border-radius: 5px;
+  background-color: rgb(230, 217, 34);
+  color: white;
+
+  font-size: 25px;
+  line-height: 25px;
+  margin-top: 20px;
+  
+}
+.error2 {
+  flex-basis: 60%;
+}
+.error2 img {
+  width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+  .error-section {
+    display: block;
+    margin-top: 30px;
+  }
+  .error1 {
+    text-align: center;
+    margin-bottom: 5px;
+  }
+  .error1 h1 {
+    font-size: 30px;
+    line-height: 30px;
+  }
+  .error1 button {
+  padding: 10px 30px;
+  border-radius: 5px;
+  font-size: 20px;
+  line-height: 20px;
+}
+}
