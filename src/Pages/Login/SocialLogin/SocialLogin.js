@@ -36,7 +36,7 @@ const SocialLogin = () => {
         >
           <img
             src={facebook}
-            style={{ width: '25px' ,marginRight:"5px" }}
+            style={{ width: '25px' ,marginRight:"3px" }}
             alt=""
           />{' '}
           Facebook Sign In
