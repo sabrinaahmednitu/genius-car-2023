@@ -23,14 +23,17 @@ const Registration = () => {
   const handleForm = (event) => {
     event.preventDefault();
 
+    const name = NameRef.current.value;
     const email = EmailRef.current.value;
     const password = PassRef.current.value;
 
-
-    createUserWithEmailAndPassword(email, password);
+    createUserWithEmailAndPassword(name, email, password);
 
   };
 
+  const GoToHome = () => {
+    navigate('/home');
+  };
   const GoToLogin = () => {
     navigate('/login');
   };
@@ -75,12 +78,12 @@ const Registration = () => {
               className="pass"
               required
             />
-            <Form.Text className="text-muted">
-              We'll never share your Password with anyone else.
-            </Form.Text>
           </Form.Group>
-
+          <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            <Form.Check type="checkbox" label="Accept Genius Car Terms and Conditions" />
+          </Form.Group>
           <Button
+            onClick={GoToHome}
             variant="primary"
             type="submit"
             className="w-100 bg-info"
