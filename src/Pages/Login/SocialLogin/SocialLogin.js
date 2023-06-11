@@ -3,24 +3,33 @@ import google from '../../../imags/google4.png'
 import facebook from '../../../imags/facebook.png'
 import github from '../../../imags/unnamed.png';
 
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import {
+  useSignInWithGoogle,
+  useSignInWithGithub,
+} from 'react-firebase-hooks/auth';
+
 import auth from '../../../firebase.init';
 import { useNavigate } from 'react-router-dom';
 
 const SocialLogin = () => {
-  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, user, error] = useSignInWithGoogle(auth);
+
+  const [signInWithGithub, user1, error1] = useSignInWithGithub(auth);
+
   const navigate = useNavigate();
   let errorElement;
 
-  if (error) {
-   errorElement= <div>
-        <p className="text-danger">Error : {error.message}</p>
+  if (error || error1) {
+    errorElement = ( <div>
+        <p className="text-danger">
+          Error : {error?.message} {error1?.message}
+        </p>
       </div>
-
+    );
   }
 
-  if (user) {
-    navigate('/home')
+  if (user || user1) {
+    navigate('/home');
   }
 
 
@@ -66,6 +75,7 @@ const SocialLogin = () => {
           Facebook Sign In
         </button>
         <button
+          onClick={()=>signInWithGithub()}
           className="w-100 bg-black mt-3"
           style={{
             outline: 'none',
