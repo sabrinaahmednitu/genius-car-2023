@@ -1,34 +1,44 @@
 
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import {
+  useCreateUserWithEmailAndPassword,
+  useUpdateProfile,
+} from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import SocialLogin from '../Login/SocialLogin/SocialLogin';
 
 
 const Registration = () => {
+  const [agree, setAgree] = useState(false);
 
    const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
+     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification :true});
   
-  
+  const [updateProfile, updating1, error1] = useUpdateProfile(auth);
   
 
   const navigate = useNavigate('');
-   const NameRef = useRef('');
+  
+  const NameRef = useRef('');
   const EmailRef = useRef('');
   const PassRef = useRef('');
 
-  const handleForm = (event) => {
+  const handleForm = async (event) => {
     event.preventDefault();
 
+   
     const name = NameRef.current.value;
     const email = EmailRef.current.value;
     const password = PassRef.current.value;
 
-    createUserWithEmailAndPassword(name, email, password);
-
+    
+    await createUserWithEmailAndPassword(email, password);
+    await updateProfile({ displayName :name});
+      console.log('Updated profile');
+     navigate('/home');
+    
   };
 
   const GoToHome = () => {
@@ -39,8 +49,11 @@ const Registration = () => {
   };
 
 
+  // if (user) {
+  //   navigate('/home');
+  // }
   if (user) {
-    navigate('/home');
+    console.log('user',user);
   }
 
     return (
@@ -50,7 +63,6 @@ const Registration = () => {
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Your Name</Form.Label>
             <Form.Control
-              ref={NameRef}
               type="text"
               placeholder="Enter your name"
               className="name"
@@ -79,10 +91,13 @@ const Registration = () => {
               required
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Accept Genius Car Terms and Conditions" />
-          </Form.Group>
+
+          
+            <Form.Check onClick={()=>setAgree(!agree)} className={agree ? 'mb-2' : 'mb-2 text-danger'} type="checkbox" label="Accept Genius Car Terms and Conditions" />
+          
+          
           <Button
+            disabled={!agree}
             onClick={GoToHome}
             variant="primary"
             type="submit"
