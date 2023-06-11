@@ -13,7 +13,7 @@ import SocialLogin from '../Login/SocialLogin/SocialLogin';
 const Registration = () => {
   const [agree, setAgree] = useState(false);
 
-   const [createUserWithEmailAndPassword, user, loading, error] =
+   const [createUserWithEmailAndPassword, user] =
      useCreateUserWithEmailAndPassword(auth, { sendEmailVerification :true});
   
   const [updateProfile, updating1, error1] = useUpdateProfile(auth);
@@ -25,6 +25,10 @@ const Registration = () => {
   const EmailRef = useRef('');
   const PassRef = useRef('');
 
+  if (user) {
+    console.log(user);
+  }
+
   const handleForm = async (event) => {
     event.preventDefault();
 
@@ -35,11 +39,12 @@ const Registration = () => {
 
     
     await createUserWithEmailAndPassword(email, password);
-    await updateProfile({ displayName :name});
-      console.log('Updated profile');
+    await updateProfile({ displayName :name });
      navigate('/home');
-    
+    console.log(name)
   };
+
+
 
   const GoToHome = () => {
     navigate('/home');
@@ -52,9 +57,7 @@ const Registration = () => {
   // if (user) {
   //   navigate('/home');
   // }
-  if (user) {
-    console.log('user',user);
-  }
+
 
     return (
       <div className="container register w-50 m-auto">
@@ -63,6 +66,7 @@ const Registration = () => {
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Your Name</Form.Label>
             <Form.Control
+              ref={NameRef}
               type="text"
               placeholder="Enter your name"
               className="name"
@@ -92,10 +96,13 @@ const Registration = () => {
             />
           </Form.Group>
 
-          
-            <Form.Check onClick={()=>setAgree(!agree)} className={agree ? 'mb-2' : 'mb-2 text-danger'} type="checkbox" label="Accept Genius Car Terms and Conditions" />
-          
-          
+          <Form.Check
+            onClick={() => setAgree(!agree)}
+            className={agree ? 'mb-2' : 'mb-2 text-danger'}
+            type="checkbox"
+            label="Accept Genius Car Terms and Conditions"
+          />
+
           <Button
             disabled={!agree}
             onClick={GoToHome}
