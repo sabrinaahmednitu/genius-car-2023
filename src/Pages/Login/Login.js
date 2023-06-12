@@ -7,6 +7,9 @@ import {
 } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import SocialLogin from './SocialLogin/SocialLogin';
+import Loading from '../Shared/Loading/Loading';
+  import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
@@ -36,6 +39,10 @@ const Login = () => {
   const location = useLocation();
   let from = location.state?.from?.pathname || '/';
 
+   if (loading || sending1) {
+     return <Loading></Loading>;
+   }
+
   if (user) {
     navigate(from, { replace: true });
   }
@@ -51,7 +58,7 @@ const Login = () => {
   const resetPassword = async () => {
      const email = EmailRef.current.value;
     await sendPasswordResetEmail(email);
-    alert('Sent Email');
+    toast('Sent Email');
   }
 
 
@@ -103,16 +110,18 @@ const Login = () => {
         </Link>
       </p>
       <p className="text-center">
-        Forget Password ? <Link
-          to="/login"
+        Forget Password ?{' '}
+        <button
           className="text-primary pointer pe-auto text-decoration-none"
           onClick={resetPassword}
+          style={{border:'0' ,outline:'0',background:'transparent'}}
         >
           Reset Your Password
-        </Link>
+        </button>
       </p>
-  
+
       <SocialLogin></SocialLogin>
+      <ToastContainer />
     </div>
   );
 };
