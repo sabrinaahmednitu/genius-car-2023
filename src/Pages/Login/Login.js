@@ -62,7 +62,7 @@ const Login = () => {
            toast('Sent Email');
     }
     else {
-      toast('please enter your email address')
+      toast('please enter your email ')
     }
   }
 
