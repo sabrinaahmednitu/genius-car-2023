@@ -1,10 +1,12 @@
 import React from 'react';
 
+
 const About = () => {
+    
     return (
-        <div className='container' >
-            <h3>About</h3>
-        </div>
+      <div className="container">
+        <h1>i am about</h1>
+      </div>
     );
 };
 
