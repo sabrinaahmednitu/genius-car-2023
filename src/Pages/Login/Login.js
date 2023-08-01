@@ -8,7 +8,7 @@ import {
 import auth from '../../firebase.init';
 import SocialLogin from './SocialLogin/SocialLogin';
 import Loading from '../Shared/Loading/Loading';
-  import { ToastContainer, toast } from 'react-toastify';
+  import {  toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -31,13 +31,14 @@ const Login = () => {
   };
 
   const navigate = useNavigate('');
+ const location = useLocation();
+ let from = location.state?.from?.pathname || '/';
 
   const GoToRegister = () => {
     navigate('/registration');
   };
 
-  const location = useLocation();
-  let from = location.state?.from?.pathname || '/';
+ 
 
    if (loading || sending1) {
      return <Loading></Loading>;
@@ -126,7 +127,7 @@ const Login = () => {
       </p>
 
       <SocialLogin></SocialLogin>
-      <ToastContainer />
+      
     </div>
   );
 };

@@ -30,13 +30,12 @@ const Header = () => {
                 <Nav.Link href="home#services">Services</Nav.Link>
                 <Nav.Link href="home#experts">Experts</Nav.Link>
 
-                <Nav.Link as={Link} to="about">
-                  About
-                </Nav.Link>
+               
               </Nav>
               <Nav>
                 {user && (
                   <>
+                    <Nav.Link href="/order">Order</Nav.Link>
                     <Nav.Link href="/addservice">Add Service</Nav.Link>
                     <Nav.Link href="/manageservices">Manage Services</Nav.Link>
                   </>

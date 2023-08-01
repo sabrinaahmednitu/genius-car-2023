@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import UseServiceDetail from '../../hooks/UseServiceDetail';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import { toast } from 'react-toastify';
 
 
 
@@ -30,7 +31,13 @@ const Checkout = () => {
       body:JSON.stringify(order)
     })
       .then(res => res.json())
-    .then(data=>console.log(data))
+      .then(data => {
+        console.log(data);
+        if (data.insertedId) {
+          toast('Your order is booked ! ')
+          event.target.reset();
+        }
+    })
   }
 
     return (
@@ -54,7 +61,7 @@ const Checkout = () => {
             <input
               type="text"
               name="name"
-              value={user.displayName}
+              value={user?.displayName}
               readOnly
               placeholder="name"
               required
@@ -62,7 +69,7 @@ const Checkout = () => {
             <input
               type="email"
               name="email"
-              value={user.email}
+              value={user?.email}
               readOnly
               disabled
               placeholder="email"
