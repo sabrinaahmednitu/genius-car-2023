@@ -9,7 +9,7 @@ const NotFound = () => {
         ToHome('/home');
     }
     return (
-      <div className="container error-section ">
+      <div className="error-section ">
         <div className=" error1 ">
           <h1>ERROR FOUND !</h1>
           <button className="error-btn" onClick={NavigateToHome}>

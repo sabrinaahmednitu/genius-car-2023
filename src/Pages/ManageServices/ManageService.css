@@ -1,0 +1,9 @@
+
+
+@media only screen and (max-width: 600px) {
+.mservice{
+   flex-flow: column;
+   padding: 10px;
+   
+}
+}

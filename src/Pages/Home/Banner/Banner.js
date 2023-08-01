@@ -13,7 +13,7 @@ const Banner = () => {
     setIndex(selectedIndex);
   };
     return (
-      <div className="container">
+      <div >
         <img src={logo} alt="" width="250px"style={{textAlign:"center"}} />
         <Carousel activeIndex={index} onSelect={handleSelect}>
           <Carousel.Item>

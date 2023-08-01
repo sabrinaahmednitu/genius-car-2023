@@ -11,7 +11,7 @@ const Header = () => {
     signOut(auth);
   }
     return (
-      <div className="container">
+      <div>
         <Navbar
           collapseOnSelect
           expand="lg"
@@ -28,14 +28,18 @@ const Header = () => {
               <Nav className="me-auto">
                 <Nav.Link href="home#services">Services</Nav.Link>
                 <Nav.Link href="home#experts">Experts</Nav.Link>
+
                 <Nav.Link as={Link} to="about">
                   About
                 </Nav.Link>
               </Nav>
               <Nav>
-                {/* <Nav.Link as={Link} to="about">
-                  About
-                </Nav.Link> */}
+                {user && (
+                  <>
+                    <Nav.Link href="/addservice">Add Service</Nav.Link>
+                    <Nav.Link href="/manageservices">Manage Services</Nav.Link>
+                  </>
+                )}
                 {user ? (
                   <button onClick={handleSignOut} className="btn btn-info">
                     Sign Out

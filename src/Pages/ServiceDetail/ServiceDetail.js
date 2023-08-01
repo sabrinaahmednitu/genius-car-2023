@@ -13,7 +13,7 @@ const ServiceDetail = () => {
   },[])
 
     return (
-      <div className="container mt-5">
+      <div className=" mt-5">
         <h3 className='text-center' >Detail about Service : {service.name} </h3>
         <div className='text-center' >
           <Link to="/checkout">

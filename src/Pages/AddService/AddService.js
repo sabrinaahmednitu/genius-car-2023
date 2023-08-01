@@ -19,7 +19,7 @@ const AddService = () => {
 
 
   return (
-    <div className="container">
+    <div className='container' >
       <h2 className="text-center mt-5">Add new service here</h2>
 
       <form
