@@ -20,9 +20,9 @@ const experts = [
 ]
 const Experts = () => {
   return (
-    <div id='experts' className="container mt-5">
-      <h2 className='text-center' >Our Experts</h2>
-      <div className="row">
+    <div id="experts" className="container mt-5">
+      <h2 className="text-center">Our Experts</h2>
+      <div className="row experts">
         {experts.map((expert) => (
           <Expert expert={expert} key={expert.id}></Expert>
         ))}

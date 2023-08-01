@@ -4,8 +4,11 @@ import './Expert.css';
 const Expert = ({ expert }) => {
   const { name, img } = expert;
   return (
-    <div className="col-sm-12 col-md-6 col-lg-4 g-5">
-      <div className="card " style={{ width: '18rem', margin: 'auto' }}>
+    <div className="">
+      <div
+        className="card "
+        style={{ width: '18rem', margin: 'auto' }}
+      >
         <img src={img} className="card-img-top" alt="..." />
         <div className="card-body">
           <h5 className="card-title">{name}</h5>
@@ -17,7 +20,7 @@ const Expert = ({ expert }) => {
         </div>
       </div>
     </div>
-  );
+  ); 
 };
 
 export default Expert;

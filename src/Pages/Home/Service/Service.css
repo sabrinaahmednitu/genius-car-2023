@@ -1,5 +1,5 @@
 .service{
-    border: 3px solid rgb(255, 0, 106);
+    border: 1px solid black;
     text-align: center;
     border-radius: 5px;
     padding-bottom: 20px;
@@ -12,8 +12,9 @@
 .service-btn{
     outline: 0;
     border: 0;
-    background-color: rgb(255, 0, 106);
+    background-color: rgb(135, 133, 235);
     color: white;
     padding: 10px ;
     border-radius: 5px;
+    font-weight: bold;
 }

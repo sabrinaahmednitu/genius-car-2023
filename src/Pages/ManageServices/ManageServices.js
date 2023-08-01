@@ -3,11 +3,19 @@ import useServices from '../../hooks/useServices';
 import './ManageService.css'
 
 const ManageServices = () => {
-    const [services] = useServices();
-    const handleDelete = () => {
+    const [services, setServices] = useServices();
+    const handleDelete = (id) => {
         const proceed = window.confirm('Are you sure');
         if (proceed) {
-            
+            fetch(`http://localhost:5000/services/${id}`, {
+                method:'DELETE'
+            })
+              .then((res) => res.json())
+                .then((data) => {
+                    console.log(data);
+                    const remaining=services.filter(service=> service._id !== id )
+                   setServices(remaining)
+                })
         }
     }
     return (
@@ -21,7 +29,7 @@ const ManageServices = () => {
             <img
               style={{
                 width: '145px',
-                borderRadius: '20px'
+                borderRadius: '20px',
               }}
               src={service.img}
               alt=""
@@ -33,7 +41,9 @@ const ManageServices = () => {
             </div>
             <div className="d-flex gap-3">
               <button className="btn btn-secondary">Update</button>
-              <button className="btn btn-danger">Delete</button>
+              <button onClick={()=>handleDelete(service._id)} className="btn btn-danger">
+                Delete
+              </button>
             </div>
           </div>
         ))}

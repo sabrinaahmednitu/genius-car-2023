@@ -15,9 +15,10 @@ const Header = () => {
         <Navbar
           collapseOnSelect
           expand="lg"
-          bg="dark"
-          variant="dark"
           sticky="top"
+          // style={{
+          //   backgroundColor: ' rgb(135, 133, 235)',
+          // }}
         >
           <Container>
             <Navbar.Brand as={Link} to="/">
