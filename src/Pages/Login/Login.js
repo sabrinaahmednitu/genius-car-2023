@@ -20,13 +20,29 @@ const Login = () => {
     navigate('/registration');
   };
 
-  //  for signUp
+  //  for login
   const loginOnSubmit = (data) => {
     console.log(data);
-    logIn(data.email, data.password)
+     logIn(data.email, data.password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        const useremail = user.email;
+        console.log(useremail);
+        console.log(user); 
+      
+        localStorage.setItem('acessToken', user.accessToken)
+        
+        fetch('http://localhost:5000/login', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+          },
+          body: JSON.stringify(useremail),
+        })
+          .then((res) => res.json())
+          .then((usertoken) => console.log('usertoken', usertoken));
+         
         alert(' Thank you !!!', 'Successfully login');
         navigate('/');
       })
@@ -38,10 +54,7 @@ const Login = () => {
       <h2 className="text-center mt-5 mb-5">Please Login</h2>
       {/* form-right */}
       <div>
-        <form
-          onSubmit={handleSubmit(loginOnSubmit)}
-          className="w-75 mx-auto"
-        >
+        <form onSubmit={handleSubmit(loginOnSubmit)} className="w-50 mx-auto">
           {/* Email */}
           <div>
             <input
@@ -57,7 +70,6 @@ const Login = () => {
                   message: 'provide a valid email',
                 },
               })}
-              
             />
 
             <label className="label">
@@ -73,7 +85,6 @@ const Login = () => {
 
           {/* Password */}
           <div className="form-control">
-
             <input
               type="password"
               placeholder="password"
@@ -87,7 +98,6 @@ const Login = () => {
                   message: 'use capital letter, special character  and number',
                 },
               })}
-            
             />
 
             <label className="label">
@@ -101,9 +111,7 @@ const Login = () => {
 
             {/* Forgot password */}
             <label className="label">
-              <a href="#" >
-                Forgot password?
-              </a>
+              <a href="#">Forgot password?</a>
             </label>
             {/* Forgot password */}
           </div>

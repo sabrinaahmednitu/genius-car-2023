@@ -42,7 +42,7 @@ const SocialLogin = () => {
 
 
   return (
-    <div className="container">
+    <div className="container w-50 mx-auto">
       <div className=" d-flex align-items-center">
         <div style={{ height: '1px' }} className="bg-info w-50"></div>
         <p className="mt-2 px-2">or</p>
@@ -81,7 +81,7 @@ const SocialLogin = () => {
           Facebook Sign In
         </button>
         <button
-          onClick={()=>signInWithGithub()}
+          onClick={() => signInWithGithub()}
           className="w-100 bg-black mt-3"
           style={{
             outline: 'none',
