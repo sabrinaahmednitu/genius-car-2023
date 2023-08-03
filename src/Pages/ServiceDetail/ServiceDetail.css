@@ -1,13 +1,20 @@
-@media only screen and (max-width:576px){
-     .DetailCard{
+
+   .detailCard img{
+       width: 350px;
+       margin: auto;
+   }
+   .detailContent{
+     width: 50%;
+     margin: auto;
+   }
+
+@media only screen and (max-width:768px){
+     .detailCard img{
        width: 100%;
    }
+     .detailContent{
+     width: 100%;
+     margin: auto;
+   }
+ 
  }
-  
-
-
-@media only screen and (min-width: 577px) and (max-width:992px){
-    .services-container{
-    grid-template-columns: repeat(2,1fr);
-}
-}

@@ -15,7 +15,7 @@ const ServiceDetail = () => {
 
         <div className=" w-50 mx-auto detailCards mt-5 mb-5">
           <div className=" detailCard card mx-auto border p-3">
-            <img className="w-100" src={service.img} alt="" />
+            <img src={service.img} alt="" />
             <div className="detailContent text-center">
               <h2 className="mt-4">Name : {service.name}</h2>
               <p>{service.description}</p>
