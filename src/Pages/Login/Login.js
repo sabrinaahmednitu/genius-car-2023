@@ -1,18 +1,10 @@
-import React, { useContext, useRef } from 'react';
-import { Button, Form } from 'react-bootstrap';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import {
-  useSignInWithEmailAndPassword,
-  useSendPasswordResetEmail,
-} from 'react-firebase-hooks/auth';
-import auth from '../../firebase.init';
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import SocialLogin from './SocialLogin/SocialLogin';
-import Loading from '../Shared/Loading/Loading';
-  import {  toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../hooks/AuthProvider';
-
 
 const Login = () => {
   const {
@@ -25,7 +17,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const navigateSignup = () => {
-    navigate('/signup');
+    navigate('/registration');
   };
 
   //  for signUp
@@ -45,19 +37,13 @@ const Login = () => {
     <div className="container w-50 m-auto">
       <h2 className="text-center mt-5 mb-5">Please Login</h2>
       {/* form-right */}
-      <div className=" card flex-shrink-0 w-full max-w-sm shadow-2xl bg-white pt-5 pb-10">
-        <h1 className="text-center text-4xl text-black font-bold mb-3">
-          Login
-        </h1>
+      <div>
         <form
           onSubmit={handleSubmit(loginOnSubmit)}
-          className="w-[75%] mx-auto"
+          className="w-75 mx-auto"
         >
           {/* Email */}
           <div>
-            <label className="label">
-              <span className="label-text">Email</span>
-            </label>
             <input
               type="text"
               placeholder="email"
@@ -71,7 +57,7 @@ const Login = () => {
                   message: 'provide a valid email',
                 },
               })}
-              className="input input-bordered w-full max-w-md"
+              
             />
 
             <label className="label">
@@ -87,9 +73,6 @@ const Login = () => {
 
           {/* Password */}
           <div className="form-control">
-            <label className="label">
-              <span className="label-text">Password</span>
-            </label>
 
             <input
               type="password"
@@ -101,10 +84,10 @@ const Login = () => {
                 },
                 pattern: {
                   value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/,
-                  message: 'provide a valid ppassword',
+                  message: 'use capital letter, special character  and number',
                 },
               })}
-              className="input input-bordered w-full max-w-md"
+            
             />
 
             <label className="label">
@@ -118,7 +101,7 @@ const Login = () => {
 
             {/* Forgot password */}
             <label className="label">
-              <a href="#" className="label-text-alt link link-hover">
+              <a href="#" >
                 Forgot password?
               </a>
             </label>
@@ -136,7 +119,7 @@ const Login = () => {
           Do not have an account
           <Link
             className="text-green-600 font-bold "
-            to="/signup"
+            to="/registration"
             onClick={navigateSignup}
           >
             Please Signup
@@ -145,7 +128,6 @@ const Login = () => {
         <SocialLogin></SocialLogin>
       </div>
       {/* form-right */}
-
     </div>
   );
 };
