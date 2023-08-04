@@ -5,6 +5,7 @@ import SocialLogin from './SocialLogin/SocialLogin';
 import 'react-toastify/dist/ReactToastify.css';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../hooks/AuthProvider';
+import axios from 'axios';
 
 const Login = () => {
   const {
@@ -21,36 +22,35 @@ const Login = () => {
   };
 
   //  for login
-  const loginOnSubmit = (data) => {
+  const loginOnSubmit = async (data) => {
     console.log(data);
-     logIn(data.email, data.password)
+    await logIn(data.email, data.password)
+      
       .then((result) => {
         const user = result.user;
-        const useremail = user.email;
-        console.log(useremail);
-        console.log(user); 
+        console.log(user);
       
-        localStorage.setItem('acessToken', user.accessToken)
-        
+
         fetch('http://localhost:5000/login', {
           method: 'POST',
           headers: {
             'content-type': 'application/json',
-            authorization: `Bearer ${localStorage.getItem('accessToken')}`,
           },
-          body: JSON.stringify(useremail),
+          body: JSON.stringify(user?.email),
         })
           .then((res) => res.json())
-          .then((usertoken) => console.log('usertoken', usertoken));
-         
+          .then((data) => console.log(data));
+
+
         alert(' Thank you !!!', 'Successfully login');
         navigate('/');
       })
+
       .catch((error) => console.log(error));
   };
 
   return (
-    <div className="container w-50 m-auto">
+    <div className="w-50 mx-auto">
       <h2 className="text-center mt-5 mb-5">Please Login</h2>
       {/* form-right */}
       <div>
@@ -70,6 +70,7 @@ const Login = () => {
                   message: 'provide a valid email',
                 },
               })}
+              className="w-100"
             />
 
             <label className="label">
@@ -82,9 +83,9 @@ const Login = () => {
             </label>
           </div>
           {/* Email */}
-
+          <br />
           {/* Password */}
-          <div className="form-control">
+          <div>
             <input
               type="password"
               placeholder="password"
@@ -98,6 +99,7 @@ const Login = () => {
                   message: 'use capital letter, special character  and number',
                 },
               })}
+              className="w-100"
             />
 
             <label className="label">
@@ -108,24 +110,23 @@ const Login = () => {
                 <p className="text-red-600 my-2">{errors.password?.message}</p>
               )}
             </label>
-
-            {/* Forgot password */}
-            <label className="label">
-              <a href="#">Forgot password?</a>
-            </label>
-            {/* Forgot password */}
           </div>
           {/* Password */}
 
-          <div className="form-control ">
-            <button type="submit" className="btn btn-primary max-w-md">
+          {/* Forgot password */}
+          <label className="label mb-2 mt-2">
+            <a href="#">Forgot password?</a>
+          </label>
+          {/* Forgot password */}
+
+          <div>
+            <button type="submit" className="btn btn-primary d-block w-75 mx-auto">
               Login
             </button>
           </div>
         </form>
         <p className="text-black mt-3 text-center">
-          Do not have an account
-          <Link
+          Do not have an account? <Link
             className="text-green-600 font-bold "
             to="/registration"
             onClick={navigateSignup}

@@ -70,7 +70,7 @@ const Registration = () => {
                     message: 'name is required',
                   },
                 })}
-                className=" w-75"
+                className=" w-100"
               />
 
               <label className="label">
@@ -83,7 +83,7 @@ const Registration = () => {
               </label>
             </div>
             {/* Name */}
-
+<br />
             {/* Email */}
             <div>
               <input
@@ -99,7 +99,7 @@ const Registration = () => {
                     message: 'provide a valid email',
                   },
                 })}
-                className=" w-75"
+                className=" w-100"
               />
 
               <label className="label">
@@ -112,7 +112,7 @@ const Registration = () => {
               </label>
             </div>
             {/* Email */}
-
+<br />
             {/* Password */}
             <div>
               <input
@@ -128,7 +128,7 @@ const Registration = () => {
                     message: 'provide a valid password',
                   },
                 })}
-                className=" w-75"
+                className=" w-100"
               />
 
               <label className="label">
@@ -146,7 +146,7 @@ const Registration = () => {
 
               {/* Forgot password */}
               <label className="label">
-                <span className="label-text">
+                <span className="label-text text-center">
                   Forget Password ?
                   <button className="btn btn-link">Reset</button>
                 </span>
@@ -156,10 +156,7 @@ const Registration = () => {
             {/* Password */}
 
             <div>
-              <button
-                type="submit"
-                className="btn btn-primary w-50 "
-              >
+              <button type="submit" className="btn btn-primary w-75 d-block mx-auto">
                 sign Up
               </button>
             </div>
