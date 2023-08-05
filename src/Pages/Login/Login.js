@@ -22,31 +22,34 @@ const Login = () => {
   };
 
   //  for login
-  const loginOnSubmit = async (data) => {
+  const loginOnSubmit =async(data) => {
     console.log(data);
-    await logIn(data.email, data.password)
-      
+     await logIn(data?.email, data?.password)
+     
       .then((result) => {
-        const user = result.user;
-        console.log(user);
-      
+        const user = result?.user;
+        console.log(result);
+        const accessToken = user?.accessToken;
+        console.log(accessToken);
+       localStorage.setItem('accesstoken', accessToken);
 
         fetch('http://localhost:5000/login', {
           method: 'POST',
           headers: {
             'content-type': 'application/json',
+            authorization: `Bearer ${localStorage.getItem(accessToken)}`,
           },
-          body: JSON.stringify(user?.email),
+          body: JSON.stringify(user?.auth?.email),
         })
           .then((res) => res.json())
           .then((data) => console.log(data));
 
 
-        alert(' Thank you !!!', 'Successfully login');
-        navigate('/');
-      })
+      //   alert(' Thank you !!!', 'Successfully login');
+         navigate('/');
+       })
 
-      .catch((error) => console.log(error));
+       .catch((error) => console.log(error));
   };
 
   return (
