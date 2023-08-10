@@ -19,6 +19,7 @@ const Checkout = () => {
       email: user.email,
       service: service.name,
       serviceId: serviceId,
+      serviceImg:service.img,
       address: event.target.address.value,
       phone: event.target.phone.value,
     }
@@ -86,6 +87,14 @@ const Checkout = () => {
               type="text"
               name="service"
               value={service.name}
+              disabled
+              placeholder="service"
+              required
+            />
+            <input
+              type="text"
+              name="service"
+              value={service.img}
               disabled
               placeholder="service"
               required

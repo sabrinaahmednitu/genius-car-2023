@@ -1,11 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialLogin from './SocialLogin/SocialLogin';
 import 'react-toastify/dist/ReactToastify.css';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../hooks/AuthProvider';
-import axios from 'axios';
 
 const Login = () => {
   const {
@@ -16,41 +15,70 @@ const Login = () => {
 
   const { logIn } = useContext(AuthContext);
   const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || '/';
 
   const navigateSignup = () => {
     navigate('/registration');
   };
 
-  //  for login
-  const loginOnSubmit =async(data) => {
+  const loginOnSubmit = async (data) => {
     console.log(data);
-     await logIn(data?.email, data?.password)
-     
-      .then((result) => {
-        const user = result?.user;
-        console.log(result);
-        const accessToken = user?.accessToken;
-        console.log(accessToken);
-       localStorage.setItem('accesstoken', accessToken);
 
-        fetch('http://localhost:5000/login', {
-          method: 'POST',
-          headers: {
-            'content-type': 'application/json',
-            authorization: `Bearer ${localStorage.getItem(accessToken)}`,
-          },
-          body: JSON.stringify(user?.auth?.email),
-        })
-          .then((res) => res.json())
-          .then((data) => console.log(data));
+    try {
+      const result = await logIn(data?.email, data?.password);
+      console.log(result);
 
+      const accessToken = result?.user?.accessToken;
+        localStorage.setItem('accesstoken', accessToken);
+      // Assuming you want to use the accessToken from the result
+      // for the authorization header
+      const response = await fetch('http://localhost:5000/login', {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+          authorization: `Bearer ${localStorage.getItem(accessToken)}`,
+        },
+        body: JSON.stringify({ email: data?.email }),
+      });
 
-      //   alert(' Thank you !!!', 'Successfully login');
-         navigate('/');
-       })
+      const ndata = await response.json();
+      console.log('what is this', ndata);
 
-       .catch((error) => console.log(error));
+      // alert('Thank you !!!', 'Successfully login');
+      navigate(from, {relace:true});
+    }catch (error) {
+      console.log(error);
+    }
   };
+
+
+  // for login
+  // const loginOnSubmit =(data) => {
+  //   console.log(data);
+  //   logIn(data?.email, data?.password)
+     
+  //     .then((result) => {
+  //       console.log(result);
+  //       // const accessToken = user?.accessToken;
+  //       // localStorage.setItem('accesstoken', accessToken);  
+       
+  //       //  fetch('http://localhost:5000/login', {
+  //       //    method: 'POST',
+  //       //    headers: {
+  //       //      'content-type': 'application/json',
+  //       //      authorization: `Bearer ${localStorage.getItem(accessToken)}`,
+  //       //    },
+  //       //    body: JSON.stringify(user?.auth?.email),
+  //       //  })
+  //       //    .then((res) => res.json())
+  //       //    .then((ndata) => console.log('what is this', ndata));    
+  //     //   alert(' Thank you !!!', 'Successfully login');
+  //        navigate('/');
+  //      })
+
+  //      .catch((error) => console.log(error));
+  // };
 
   return (
     <div className="w-50 mx-auto">
