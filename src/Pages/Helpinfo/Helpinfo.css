@@ -1,0 +1,27 @@
+.cards{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Two columns */
+  gap: 20px; /* Gap between cards */
+}
+
+.HelpCard{
+  border: 1px solid #ccc;
+  padding: 50px 20px 50px 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.HelpCard:hover{
+  background-image: linear-gradient( #ffac37, #e22c65);
+  transition: 0.1s ease-in;
+  color: white;
+}
+
+.HelpCard h1{
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.HelpCard p{
+  font-size: 1rem;
+}
