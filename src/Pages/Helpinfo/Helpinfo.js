@@ -3,8 +3,8 @@ import './Helpinfo.css'
 
 const Helpinfo = () => {
     return (
-      <div>
-        <div className="container text-center mt-5">
+      <div className="helpMain" style={{ backgroundColor: '#f1f1f1' }}>
+        <div className="container text-center ">
           <h1>
             What Are You <span style={{ color: 'red' }}>Looking For</span>{' '}
           </h1>
@@ -20,9 +20,7 @@ const Helpinfo = () => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
                 luctus tincidunt.
               </p>
-              <a href="#" >
-                Read more...
-              </a>
+              <p>Read more...</p>
             </div>
 
             <div className="HelpCard">
@@ -32,9 +30,7 @@ const Helpinfo = () => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
                 luctus tincidunt.
               </p>
-              <a href="#" >
-                Read more...
-              </a>
+              <p>Read more...</p>
             </div>
             <div className="HelpCard">
               <i class="fa fa-camera-retro fa-5x"></i> fa-5x
@@ -43,9 +39,7 @@ const Helpinfo = () => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
                 luctus tincidunt.
               </p>
-              <a href="#" >
-                Read more...
-              </a>
+              <p>Read more...</p>
             </div>
             <div className="HelpCard">
               <i class="fa fa-camera-retro fa-5x"></i> fa-5x
@@ -54,9 +48,7 @@ const Helpinfo = () => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
                 luctus tincidunt.
               </p>
-              <a href="#" >
-                Read more...
-              </a>
+              <p>Read more...</p>
             </div>
           </div>
         </div>

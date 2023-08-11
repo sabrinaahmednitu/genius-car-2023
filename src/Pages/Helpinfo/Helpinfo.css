@@ -1,3 +1,10 @@
+
+
+.helpMain{
+padding-top: 70px;
+padding-bottom: 100px;
+}
+
 .cards{
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* Two columns */
@@ -5,10 +12,11 @@
 }
 
 .HelpCard{
-  border: 1px solid #ccc;
   padding: 50px 20px 50px 20px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  color: #535353;
 }
 
 .HelpCard:hover{
@@ -17,11 +25,6 @@
   color: white;
 }
 
-.HelpCard h1{
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
 
-.HelpCard p{
-  font-size: 1rem;
-}
+
+
