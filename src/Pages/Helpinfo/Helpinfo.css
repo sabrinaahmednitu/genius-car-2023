@@ -20,11 +20,26 @@ padding-bottom: 100px;
 }
 
 .HelpCard:hover{
-  background-image: linear-gradient( #ffac37, #e22c65);
+  background-image: linear-gradient(#f4f1f8,#e22c65 ,#e22c65);
+  /* background-image: linear-gradient( #ffac37, #e22c65 , #f4f1f8 ); */
   transition: 0.1s ease-in;
   color: white;
 }
 
+.Hcard3{
+   /* background-image: linear-gradient(#f4f1f8,#e22c65 ,#e22c65); */
+   background-image: linear-gradient(#f4f1f8,#aa8dcf ,#9456e6);
+color: white;
+  }
 
 
-
+@media only screen and (max-width: 557px) {
+.cards{
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* Two columns */
+  gap: 20px; /* Gap between cards */
+}
+.HelpCard{
+  padding: 30px;
+}
+}

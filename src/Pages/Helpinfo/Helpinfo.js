@@ -14,7 +14,7 @@ const Helpinfo = () => {
           </p>
           <div className="cards">
             <div className="HelpCard">
-              <i class="fa fa-camera-retro fa-5x"></i> fa-5x
+              <i class="fa fa-shield fa-5x mb-4" aria-hidden="true"></i>
               <h4>Highly Secured</h4>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
@@ -24,7 +24,7 @@ const Helpinfo = () => {
             </div>
 
             <div className="HelpCard">
-              <i class="fa fa-camera-retro fa-5x"></i> fa-5x
+              <i class="fa fa-handshake fa-5x mb-4" aria-hidden="true"></i>
               <h4>Trusted Agents</h4>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
@@ -32,8 +32,8 @@ const Helpinfo = () => {
               </p>
               <p>Read more...</p>
             </div>
-            <div className="HelpCard">
-              <i class="fa fa-camera-retro fa-5x"></i> fa-5x
+            <div className="HelpCard Hcard3">
+              <i class="fa fa-usd fa-5x mb-4" aria-hidden="true"></i>
               <h4>Get an Offer</h4>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
@@ -42,7 +42,7 @@ const Helpinfo = () => {
               <p>Read more...</p>
             </div>
             <div className="HelpCard">
-              <i class="fa fa-camera-retro fa-5x"></i> fa-5x
+              <i class="fa fa-phone-square fa-5x mb-4" aria-hidden="true"></i>
               <h4>Free Support</h4>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
