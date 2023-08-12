@@ -7,7 +7,6 @@ const Expert = ({ expert }) => {
     <div className="">
       <div
         className="card "
-        style={{ width: '18rem', margin: 'auto' }}
       >
         <img src={img} className="card-img-top" alt="..." />
         <div className="card-body">

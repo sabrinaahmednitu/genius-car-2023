@@ -1,14 +1,11 @@
 import React from 'react';
 import blog from '../../imags/blog.jpg';
+import './Blog.css'
 
 const Blog = () => {
     return (
-      <div>
-        <div className=" container d-flex justify-content-center align-items-center">
-          <div>
-            {' '}
-            <img className='w-full' src={blog} alt="" />
-          </div>
+      <div className="mt-5 mb-5">
+        <div className=" container blogmain">
           <div className="p-5">
             <h1>Why Clients Love Us</h1>
             <p>
@@ -20,6 +17,9 @@ const Blog = () => {
             <img src="" alt="" />
             <h3>Carolyn Stone</h3>
             <p>CEO, Brick Consulting</p>
+          </div>
+          <div>
+            <img className="blogimg" src={blog} alt="" />
           </div>
         </div>
       </div>

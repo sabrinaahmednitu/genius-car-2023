@@ -3,7 +3,7 @@ import './Helpinfo.css'
 
 const Helpinfo = () => {
     return (
-      <div className="helpMain" style={{ backgroundColor: '#f1f1f1' }}>
+      <div className="helpMain">
         <div className="container text-center ">
           <h1>
             What Are You <span style={{ color: 'red' }}>Looking For</span>{' '}
