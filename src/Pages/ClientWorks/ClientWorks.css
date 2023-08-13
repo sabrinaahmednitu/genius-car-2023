@@ -1,0 +1,20 @@
+.work-images{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.work-images .cars-one{
+    width: 26%;
+    display: flex;
+   flex-direction: column;
+}
+.cars-one img{
+width: 100%;
+}
+
+.cars-three{
+    width: 44%;
+}
+.cars-three img{
+    width: 100%;
+}

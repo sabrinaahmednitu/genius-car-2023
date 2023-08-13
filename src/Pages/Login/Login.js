@@ -46,7 +46,7 @@ const Login = () => {
       console.log('what is this', ndata);
 
       // alert('Thank you !!!', 'Successfully login');
-      navigate(from, {relace:true});
+      navigate(from, {replace:true});
     }catch (error) {
       console.log(error);
     }
