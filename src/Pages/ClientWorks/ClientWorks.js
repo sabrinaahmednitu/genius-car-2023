@@ -11,31 +11,38 @@ const ClientWorks = () => {
   return (
     <div>
       <div className="Works">
-        <div className="works-text text-center">
+        <div className="works-text text-center ">
           <h2 style={{ fontWeight: '700' }}>
             These cars are modified by our Experts
           </h2>
           <p>
-            We always try to give our best service to you guys.Thanks for trust
+            We always try to give our best service to you guys. <br /> Special Thanks for trust
             us
           </p>
         </div>
 
-        <div className="container work-images mt-4 mb-4">
+        <div className="container work-images mt-5">
           <div className="cars-one">
             <div className="img1">
-              <img src={img1}  alt="" />
+              <img src={img1} alt="" />
               <div className="overlay">
-                <div className="Wtext">
-                  <h3>Modified by Amir haniya</h3>
+                <div className="Wtext text-start">
+                  <section>Renge Rovers</section>
+                  <h6>
+                    Modified by{' '}
+                    <span style={{ color: 'red' }}>Amir haniya</span>{' '}
+                  </h6>
                 </div>
               </div>
             </div>
-            <div className="img2">
-              <img src={img2}  alt="" />
+            <div className="img1">
+              <img src={img3} alt="" />
               <div className="overlay">
-                <div className="Wtext">
-                  <h3>Mir aira</h3>
+                <div className="Wtext text-start">
+                  <section>Renge Rovers</section>
+                  <h6>
+                    Modified by <span style={{ color: 'red' }}>Mir aira</span>{' '}
+                  </h6>
                 </div>
               </div>
             </div>
@@ -43,31 +50,42 @@ const ClientWorks = () => {
 
           <div className="cars-one">
             <div className="img1">
-              <img src={img3}  alt="" />
+              <img src={img4} alt="" />
               <div className="overlay">
-                <div className="Wtext">
-                  <h3>Modified by Amir haniya</h3>
+                <div className="Wtext text-start">
+                  <section>Renge Rovers</section>
+                  <h6>
+                    Modified by <span style={{ color: 'red' }}>Adam Rock</span>{' '}
+                  </h6>
                 </div>
               </div>
             </div>
-            <div className="img2">
-              <img src={img4}  alt="" />
+            <div className="img1">
+              <img src={img2} alt="" />
               <div className="overlay">
-                <div className="Wtext">
-                  <h3>Mir aira</h3>
+                <div className="Wtext text-start">
+                  <section>Renge Rovers</section>
+                  <h6>
+                    Modified by <span style={{ color: 'red' }}>will smith</span>{' '}
+                  </h6>
                 </div>
               </div>
             </div>
           </div>
 
-         
           <div className="cars-three">
             <div className="img5">
-              <img src={img6}  alt="" />
+              <img src={img6} alt="" />
+              <div className="overlay">
+                <div className="Wtext text-start">
+                  <section>Renge Rovers</section>
+                  <h6>
+                    Modified by <span style={{ color: 'red' }}>jhonson</span>{' '}
+                  </h6>
+                </div>
+              </div>
             </div>
           </div>
-
-
         </div>
       </div>
     </div>

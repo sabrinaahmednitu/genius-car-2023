@@ -1,7 +1,12 @@
+.Works{
+    width: 90%;
+    margin: 200px auto;
+}
 .work-images{
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
+    align-items:center;
+    flex-wrap:wrap;
 }
 .work-images .cars-one{
     width: 26%;
@@ -13,8 +18,30 @@ width: 100%;
 }
 
 .cars-three{
+    position: relative;
     width: 44%;
 }
 .cars-three img{
     width: 100%;
+}
+
+.cars-one .img1{
+    margin-bottom:20px ;
+    position: relative;
+}
+
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+     display: flex;
+    align-items: end;
+    padding: 0px 20px;
+     background-color: rgba(0,0, 0,0.4);
+      color: white;
+   text-align: center;
+    transition: 0.5s;
+  
 }
