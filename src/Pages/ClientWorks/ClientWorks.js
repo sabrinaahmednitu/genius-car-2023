@@ -21,7 +21,7 @@ const ClientWorks = () => {
           </p>
         </div>
 
-        <div className="container work-images mt-5">
+        <div className=" work-images mt-5">
           <div className="cars-one">
             <div className="img1">
               <img src={img1} alt="" />

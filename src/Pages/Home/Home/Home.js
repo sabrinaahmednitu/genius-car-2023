@@ -15,7 +15,7 @@ const Home = () => {
         <ClientWorks></ClientWorks>
         <Helpinfo></Helpinfo>
         <Blog></Blog>
-       <Experts></Experts>
+        <Experts></Experts>
         </>
     );
 };
