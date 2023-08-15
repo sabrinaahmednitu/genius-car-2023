@@ -23,14 +23,14 @@ const Login = () => {
   };
 
   const loginOnSubmit = async (data) => {
-    console.log(data);
+    console.log('this is data',data);
 
     try {
       const result = await logIn(data?.email, data?.password);
-      console.log(result);
-
+      // console.log(result);
       const accessToken = result?.user?.accessToken;
-        localStorage.setItem('accesstoken', accessToken);
+      console.log(accessToken)
+       localStorage.setItem('accesstoken', accessToken);
       // Assuming you want to use the accessToken from the result
       // for the authorization header
       const response = await fetch('http://localhost:5000/login', {
@@ -41,15 +41,17 @@ const Login = () => {
         },
         body: JSON.stringify({ email: data?.email }),
       });
-
+     
       const ndata = await response.json();
       console.log('what is this', ndata);
-
-      // alert('Thank you !!!', 'Successfully login');
-      navigate(from, {replace:true});
-    }catch (error) {
+     
+       navigate(from, { replace: true });
+    } catch (error) {
       console.log(error);
     }
+
+    // alert('Thank you !!!', 'Successfully login');
+   
   };
 
 

@@ -1,10 +1,9 @@
 .footer-main{
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    /* justify-content: space-evenly; */
-    /* align-items: center; */
     width: 90%;
     margin: auto;
+    gap: 20px;
 }
 .Footer1 li{
     list-style-type:none;
@@ -20,9 +19,11 @@
   margin-right: 10px;
 }
 
-@media screen and (max-width:900px) {
+@media only screen and (max-width: 778px) {
 .footer-main{
-    display: block;
-   text-align: center;
+    grid-template-columns: repeat(1,1fr);
+    align-items: center;
+      justify-content: center;
+    
 }
 }

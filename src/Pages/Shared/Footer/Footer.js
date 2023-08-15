@@ -4,8 +4,16 @@ import iconimg from '../../../imags/logo-black.png';
 
 const Footer = () => {
   return (
-    <footer className=" mt-5 mb-5">
+    <footer className=" mt-5 mb-5 footerSection">
       <div className="footer-main">
+        <div className="Footer1">
+          <img src={iconimg} style={{ width: '245px' }} alt="" />
+          <section>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae
+            esse, neque voluptatum sapiente sunt laborum accusamus explicabo.
+          </section>
+        </div>
+
         <div className="Footer1">
           <h5>Helpful Links</h5>
           <li>
@@ -24,14 +32,7 @@ const Footer = () => {
             <a href="">Blog</a>
           </li>
         </div>
-
-        <div className="Footer1">
-          <img src={iconimg} style={{ width: '245px' }} alt="" />
-          <section>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae
-            esse, neque voluptatum sapiente sunt laborum accusamus explicabo.
-          </section>
-        </div>
+        
 
         <div className="Footer1">
           <h5>Contact Info</h5>
@@ -66,10 +67,10 @@ const Footer = () => {
             </a>
           </li>
           <li>
-            <input type="email" className="d-block mx-auto w-50 mt-2 " />
+            <input type="email" className="d-block mx-auto w-100 mt-2 " />
             <button
               type="submit"
-              className="btn btn-secondary mt-2 d-block mx-auto w-50"
+              className="btn btn-secondary mt-2 d-block mx-auto w-100"
             >
               Submit
             </button>

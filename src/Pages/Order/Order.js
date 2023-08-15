@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Col, Container, Image, Row } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-import UserOrders from '../UserOrders/UserOrders';
 
 const Order = () => {
   const [user] = useAuthState(auth);
