@@ -32,6 +32,7 @@ const Order = () => {
                 <h6> {order.email}</h6>
               </Col>
             </Row>
+           <button className='btn' style={{backgroundColor:'red',outline:'0',border:'0',color:'white'}}>Delete</button>
           </Container>
         </div>
       ))}

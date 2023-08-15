@@ -18,17 +18,18 @@ const ManageServices = () => {
                 })
         }
     }
-    return (
-      <div>
+  return (
+    <div>
+      <div className="manageServiceMain">
         <h2>Manage your services</h2>
         {services.map((service) => (
           <div
             key={service._id}
-            className="d-flex justify-contect-center align-items-center gap-5 mx-auto mb-3 w-75 mservice"
+            className=" mb-3 mservice"
           >
             <img
               style={{
-                width: '145px',
+                width: '245px',
                 borderRadius: '20px',
               }}
               src={service.img}
@@ -41,14 +42,18 @@ const ManageServices = () => {
             </div>
             <div className="d-flex gap-3">
               <button className="btn btn-secondary">Update</button>
-              <button onClick={()=>handleDelete(service._id)} className="btn btn-danger">
+              <button
+                onClick={() => handleDelete(service._id)}
+                className="btn btn-danger"
+              >
                 Delete
               </button>
             </div>
           </div>
         ))}
       </div>
-    );
+    </div>
+  );
 };
 
 export default ManageServices;

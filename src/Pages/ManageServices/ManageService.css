@@ -1,9 +1,27 @@
-
-
-@media only screen and (max-width: 600px) {
+     
+.manageServiceMain{
+   display: grid;
+   justify-content: center;
+   align-items: center;
+}
 .mservice{
-   flex-flow: column;
-   padding: 10px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 20px;
+  
    
+}
+@media only screen and (max-width: 768px) {
+.mservice{
+   display: block;
+   margin: auto;
+   padding: 10px;
+   border: 1px dashed pink;
+   border-radius: 10px;
+   
+}
+.mservice img{
+   width: 100%;
 }
 }
