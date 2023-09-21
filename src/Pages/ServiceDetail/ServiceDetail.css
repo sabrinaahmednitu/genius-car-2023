@@ -1,15 +1,23 @@
 
+   .detailCard{
+     display: grid;
+     grid-template-columns: repeat(2,1fr);
+     justify-content: center;
+     align-items: center;
+     gap: 20px;
+     max-width:1080px ;
+     
+   }
    .detailCard img{
        width: 350px;
        margin: auto;
    }
-   .detailContent{
-     width: 50%;
-     margin: auto;
-   }
 
 @media only screen and (max-width:768px){
-     .detailCard img{
+    .detailCard{
+         display: block;
+    }
+  .detailCard img{
        width: 100%;
    }
      .detailContent{
